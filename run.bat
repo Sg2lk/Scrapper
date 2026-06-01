@@ -1,0 +1,6 @@
+@echo off
+echo Instalando dependencias de Python...
+pip install -r requirements.txt
+echo Lanzando PriceTracker Pro en el navegador...
+streamlit run app.py
+pause

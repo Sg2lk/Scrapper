@@ -1,0 +1,5 @@
+.env
+env_scrapper/
+.venv/
+__pycache__/
+*.db
