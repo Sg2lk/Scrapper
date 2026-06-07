@@ -74,6 +74,27 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### 3.5. Configuración de Credenciales y Variables de Entorno 🔑
+
+Para que el sistema de alertas de Telegram funcione correctamente, es necesario configurar las credenciales de la API de forma segura. El proyecto está diseñado para leer estas variables de entorno sin exponer los tokens en el código fuente público.
+
+1. En la carpeta raíz del proyecto, crea un archivo llamado `.env` (o si utilizas la configuración nativa de Streamlit, crea el archivo `.streamlit/secrets.toml`).
+2. Abre el archivo con cualquier editor de texto y añade tus credenciales oficiales de Telegram siguiendo este formato:
+
+```ini
+# Configuración de Telegram API
+TELEGRAM_TOKEN="TU_TOKEN_DE_BOT_AQUÍ"
+TELEGRAM_CHAT_ID="TU_ID_DE_CHAT_DE_TELEGRAM_AQUÍ"
+```
+
+💡 ¿Cómo obtener estas credenciales?
+
+- TELEGRAM_TOKEN: Consíguelo iniciando una conversación en Telegram con el bot oficial @BotFather. Utiliza el comando /newbot, asígnale un nombre a tu bot y copia el token HTTP API que te generará al instante
+
+- TELEGRAM_CHAT_ID: Es el identificador numérico de tu chat privado con tu bot para recibir las alertas. Puedes obtenerlo enviando cualquier mensaje a tu nuevo bot y consultando su historial de actualizaciones, o utilizando bots públicos de utilidad como @userinfobot.
+
+Nota: El archivo .env (o la carpeta .streamlit) está incluido en el archivo .gitignore para garantizar que tus claves privadas nunca se suban a GitHub por error.
+
 ### 4. Ejecutar la aplicación web
 
 Dispones de dos métodos para iniciar el panel de control:
@@ -85,17 +106,17 @@ streamlit run app.py
 ```
 
 #### Método B: Ejecución Automatizada en Windows (Automatización en un clic) ⚡
-```
+
 Para facilitar el despliegue diario y la experiencia de usuario sin necesidad de interactuar con la línea de comandos, el proyecto incluye un script ejecutable automatizado para entornos Windows: run.bat
-```
+
 Este script automatiza de forma secuencial las siguientes tareas del sistema:
 
-1. Abre la consola de comandos de Windows en segundo plano.
+**1.** Abre la consola de comandos de Windows en segundo plano.
 
-2. Activa automáticamente el entorno virtual privado de Python (venv).
+**2.** Activa automáticamente el entorno virtual privado de Python (venv).
 
-3. Lanza el servidor local de Streamlit apuntando a la arquitectura de app.py.
+**3.** Lanza el servidor local de Streamlit apuntando a la arquitectura de app.py.
 
-4. Abre de forma directa tu navegador web predeterminado en la interfaz del proyecto.
+**4.** Abre de forma directa tu navegador web predeterminado en la interfaz del proyecto.
 
 **Instrucciones de uso**: Simplemente dirígete a la carpeta raíz del proyecto y haz doble clic sobre el archivo ejecutable. El monitor de precios se iniciará solo en un segundo.
