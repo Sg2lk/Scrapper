@@ -54,7 +54,7 @@ Sigue estos pasos para clonar el repositorio e iniciar la aplicación en tu ento
 
 ### 1. Clonar el repositorio
 ```bash
-git clone [https://github.com/Sg2lk/Scrapper.git](https://github.com/Sg2lk/Scrapper.git)
+git clone https://github.com/Sg2lk/Scrapper.git
 cd Scrapper
 ```
 
